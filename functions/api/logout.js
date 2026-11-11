@@ -1,0 +1,1 @@
+import {clearCookie} from '../_lib/auth.js';export async function onRequestPost(){return new Response('ok',{headers:{'Set-Cookie':clearCookie}})}

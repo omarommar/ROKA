@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090609">
+<title>𝕽𝕺𝕶𝕬 | دخول خاص</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+body{min-height:100vh;display:grid;place-items:center;background:#090609;color:white;padding:20px}
+.gate{width:min(420px,100%);text-align:center;padding:38px 25px;border:1px solid #a71969;border-radius:25px;background:#160d16;box-shadow:0 0 35px #d51b7950}
+.gate h1{font-size:48px;color:#ff4ca8;margin:10px}
+.gate p{color:#d9b7ca;line-height:2}
+.gate input{width:100%;padding:15px;border:1px solid #b52b78;border-radius:12px;background:#090609;color:white;text-align:center;font-size:18px;margin:15px 0}
+.gate button{width:100%;padding:14px;border:0;border-radius:12px;background:#e52b91;color:white;font-size:17px;font-weight:bold}
+#error{color:#ff75b9;min-height:25px}
+</style>
+</head>
+<body>
+<main class="gate">
+<div style="font-size:38px">♡</div>
+<h1>𝕽𝕺𝕶𝕬</h1>
+<p>في حكايات مش لكل الناس...</p>
+<p>اكتب كلمة السر عشان تدخل عالم ذكرياتنا 💗</p>
+<form id="guestForm">
+<input id="password" type="password" placeholder="كلمة السر" required autocomplete="current-password">
+<button type="submit">افتح الحكاية ♡</button>
+</form>
+<p id="error"></p>
+</main>
+<script src="/guest.js"></script>
+</body>
+</html>
