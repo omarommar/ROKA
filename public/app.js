@@ -44,7 +44,15 @@ const songs = [
   ["رامي صبري","كلمة"]
 ];
 
-function makePhoto(url, caption) {
+const photoSongs = [
+  {title:"تملي معاك — عمرو دياب", id:"EgmXTmj62ic"},
+  {title:"نور العين — عمرو دياب", id:"KLJA-srM_yM"},
+  {title:"قمرين — عمرو دياب", id:"z6RC2T3Q7rs"},
+  {title:"بحكي عليكي — رامي صبري", id:"RVKbjHpcDQg"},
+  {title:"حياتي مش تمام — رامي صبري", id:"STXE-yTTTFI"}
+];
+
+function makePhoto(url, caption, index = 0) {
   const card = document.createElement("article");
   card.className = "photo-card envelope-card";
 
@@ -65,9 +73,29 @@ function makePhoto(url, caption) {
 
   envelope.append(img, heart);
   card.append(envelope, p);
+
+  const song = photoSongs[index % photoSongs.length];
+
+  const player = document.createElement("div");
+  player.className = "photo-song";
+
+  const songTitle = document.createElement("div");
+  songTitle.className = "photo-song-title";
+  songTitle.textContent = "♫ " + song.title;
+
+  const frame = document.createElement("iframe");
+  frame.src = "https://www.youtube-nocookie.com/embed/" + song.id + "?playsinline=1&rel=0";
+  frame.title = song.title;
+  frame.loading = "lazy";
+  frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  frame.referrerPolicy = "strict-origin-when-cross-origin";
+  frame.allowFullscreen = true;
+
+  player.append(songTitle, frame);
+  card.append(player);
+
   return card;
 }
-
 function renderMusic() {
   const box = document.getElementById("tracks");
   box.innerHTML = "";
@@ -118,12 +146,12 @@ async function load() {
   const gallery = document.getElementById("galleryGrid");
   gallery.innerHTML = "";
 
-  data.items.filter(x => x.type === "photo" && x.url).forEach(x => {
-    gallery.append(makePhoto(x.url, x.caption || "ذكرى جميلة"));
+  data.items.filter(x => x.type === "photo" && x.url).forEach((x, i) => {
+    gallery.append(makePhoto(x.url, x.caption || "ذكرى جميلة", i));
   });
 
-  photos.forEach(photo => {
-    gallery.append(makePhoto(photo[0], photo[1]));
+  photos.forEach((photo, i) => {
+    gallery.append(makePhoto(photo[0], photo[1], i));
   });
 
   const quoteBox = document.getElementById("quotes");
