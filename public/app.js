@@ -1,19 +1,19 @@
 const photos = [
-  ["https://images.unsplash.com/photo-1490750966300-1b5b6d5c4f7d?w=900","في وسط كل الزهور، تفضل أنت أجمل تفصيلة."],
-  ["https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=900","بعض الأشخاص وجودهم وحده بيخلّي الدنيا أجمل."],
-  ["https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=900","كل غروب بيفكرني إن في حاجات تستاهل نستناها."],
-  ["https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900","حتى وسط ملايين النجوم، في حاجة واحدة بتلمع أكتر."],
-  ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900","زي البحر، في تفاصيل جميلة ملهاش آخر."],
-  ["https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=900","الهدوء الحقيقي إنك تلاقي مكانك وسط الزحمة."],
-  ["https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900","في لحظات صغيرة بتساوي عمر كامل من الذكريات."],
-  ["https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900","أجمل الطرق هي اللي بنفتكرها بابتسامة."],
-  ["https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=900","في حاجات جمالها مش محتاج كلام."],
-  ["https://images.unsplash.com/photo-1500534623283-312aade485b7?w=900","كل يوم جديد فرصة نكتب ذكرى أجمل."],
-  ["https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=900","بعض الحكايات بتفضل منورة مهما عدى عليها الوقت."],
-  ["https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=900","المهم مش المكان، المهم الذكرى اللي بتفضل فيه."],
-  ["https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900","لو للذكريات عنوان، أكيد هيكون مليان تفاصيل حلوة."],
-  ["https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=900","في ناس بيخلّوا أبسط الأيام استثنائية."],
-  ["https://images.unsplash.com/photo-1511497584788-876760111969?w=900","وهنا تفضل الحكاية مفتوحة على أجمل الذكريات."]
+  ["https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900","أجمل مكان هو المكان اللي بنكون فيه سوا ❤️"],
+  ["https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=900","كل خطوة جنبك حكاية جديدة."],
+  ["https://images.unsplash.com/photo-1529636798458-92182e662485?w=900","ضحكتك أحلى ذكرى في يومي."],
+  ["https://images.unsplash.com/photo-1519741497674-611481863552?w=900","نفسي كل لحظة حلوة نعيشها سوا."],
+  ["https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900","إيدك في إيدي والدنيا كلها تهون."],
+  ["https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=900","في وجودك أبسط الأيام بتبقى مميزة."],
+  ["https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900","حكايتنا أحلى من أي صورة."],
+  ["https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=900","كل ذكرى معاك تستاهل تتصور."],
+  ["https://images.unsplash.com/photo-1511895426328-dc8714191300?w=900","نفسي نفضل نضحك ونحلم سوا."],
+  ["https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?w=900","أحلى الصدف هي اللي جمعتنا."],
+  ["https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=900","وجودك بيخلّي للحكاية طعم تاني."],
+  ["https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=900","كل يوم معاك ذكرى تستاهل القلب."],
+  ["https://images.unsplash.com/photo-1529636798458-92182e662485?w=900","سوا حتى التفاصيل الصغيرة بتحلو."],
+  ["https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=900","أجمل صورة هي اللي بتجمعنا."],
+  ["https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=900","ويا رب تفضل حكايتنا مليانة ذكريات حلوة."]
 ];
 
 const quotes = [
