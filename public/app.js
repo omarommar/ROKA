@@ -276,3 +276,29 @@ document.addEventListener("DOMContentLoaded", () => {
     button.textContent = "ابدأ الحكاية ♡";
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("startStoryButton");
+  const audio = document.getElementById("storyAudio");
+
+  if (!button || !audio) return;
+
+  button.addEventListener("click", async () => {
+    try {
+      if (audio.paused) {
+        await audio.play();
+        button.textContent = "إيقاف الأغنية ♡";
+      } else {
+        audio.pause();
+        button.textContent = "ابدأ الحكاية ♡";
+      }
+    } catch (error) {
+      button.textContent = "تعذر تشغيل الأغنية ♡";
+    }
+  });
+
+  audio.addEventListener("ended", () => {
+    button.textContent = "ابدأ الحكاية ♡";
+  });
+});
