@@ -302,3 +302,92 @@ document.addEventListener("DOMContentLoaded", () => {
     button.textContent = "ابدأ الحكاية ♡";
   });
 });
+
+
+// ROKA birthday and heart interactions
+document.addEventListener("DOMContentLoaded", () => {
+  const get = id => document.getElementById(id);
+
+  // زر الانتقال لعيد الميلاد
+  get("birthdayShortcut")?.addEventListener("click", () => {
+    get("birthday")?.scrollIntoView({ behavior: "smooth" });
+  });
+
+  // عداد عيد الميلاد: 29 مارس من كل سنة
+  function updateBirthday() {
+    const now = new Date();
+    const isBirthday = now.getMonth() === 2 && now.getDate() === 29;
+    const countdown = get("birthdayCountdown");
+    const surprise = get("birthdaySurprise");
+
+    if (isBirthday) {
+      countdown.hidden = true;
+      surprise.hidden = false;
+      return;
+    }
+
+    countdown.hidden = false;
+    surprise.hidden = true;
+
+    let target = new Date(now.getFullYear(), 2, 29, 0, 0, 0);
+    if (now > target) {
+      target = new Date(now.getFullYear() + 1, 2, 29, 0, 0, 0);
+    }
+
+    const remaining = Math.max(0, target.getTime() - now.getTime());
+    const totalSeconds = Math.floor(remaining / 1000);
+
+    get("birthdayDays").textContent = Math.floor(totalSeconds / 86400);
+    get("birthdayHours").textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, "0");
+    get("birthdayMinutes").textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+    get("birthdaySeconds").textContent = String(totalSeconds % 60).padStart(2, "0");
+  }
+
+  updateBirthday();
+  setInterval(updateBirthday, 1000);
+
+  // صندوق القلب
+  const heartButton = get("heartBoxButton");
+  const loveLanguages = get("multilingualLove");
+
+  heartButton?.addEventListener("click", () => {
+    loveLanguages.hidden = !loveLanguages.hidden;
+    heartButton.classList.remove("heart-pop");
+    void heartButton.offsetWidth;
+    heartButton.classList.add("heart-pop");
+    heartButton.querySelector("span:last-child").textContent =
+      loveLanguages.hidden ? "افتحي صندوق الحب" : "اقفلي صندوق الحب ♡";
+  });
+
+  // رسائل عشوائية لطيفة
+  const messages = [
+    "لو زعلتك من غير قصد، حقك عليا. يهمني إنك تكوني مبسوطة ❤️",
+    "مش لازم كل حاجة تبقى مثالية، المهم نسمع بعض ونفهم بعض 💗",
+    "انتي ليكي مكانة جميلة، وزعلك مش حاجة أحب أعديها من غير ما أسمعك.",
+    "أنا آسف لو ضايقتك، ويهمني أصلح اللي حصل بالأفعال مش بالكلام بس 🌷",
+    "خدي وقتك لو محتاجة تهدي، وأنا مستعد أسمعك لما تحبي تتكلمي.",
+    "ابتسامتك غالية، وبتمنى دايمًا أشوفك مرتاحة وسعيدة ❤️",
+    "حتى لو اختلفنا، الاحترام والاهتمام بيكي يفضلوا موجودين.",
+    "مفيش رسالة تقدر توصف قد إيه انتي غالية 💞",
+    "لو في حاجة مضايقاكي مني قوليلي، خلينا نفهم بعض بهدوء.",
+    "بحب تفاصيلك الحلوة، وبتمنى أكون سبب في أيام أحلى ليكي 🌸",
+    "حقك تزعلي وحقك تعبري عن اللي جواكي، وأنا هسمعك.",
+    "انتي حكاية جميلة، وكل يوم فيها يستاهل ذكرى حلوة 💗"
+  ];
+
+  let lastMessage = -1;
+  get("sorryButton")?.addEventListener("click", () => {
+    let next;
+    do {
+      next = Math.floor(Math.random() * messages.length);
+    } while (messages.length > 1 && next === lastMessage);
+
+    lastMessage = next;
+    const box = get("sorryMessage");
+    box.innerHTML = "";
+    const paragraph = document.createElement("p");
+    paragraph.textContent = messages[next];
+    box.append(paragraph);
+    box.hidden = false;
+  });
+});

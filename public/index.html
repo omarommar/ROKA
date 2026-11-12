@@ -22,10 +22,75 @@
   <p>وكل ثانية فيها ذكرى حلوة ♥</p>
 </div><button class="pink-btn" id="startStoryButton" type="button">ابدأ الحكاية ♡</button>
 <audio id="storyAudio" src="/audio/roka-song.m4a" preload="none"></audio>
+<button class="pink-btn birthday-nav-button" id="birthdayShortcut" type="button">عيد ميلادها 🎂</button>
 </section>
 <section id="gallery" class="section"><p class="eyebrow">MEMORIES</p><h2>صور وذكريات <span>♡</span></h2><p class="muted">كل صورة بتحكي لحظة مختلفة.</p><div id="galleryGrid" class="gallery"><div class="empty">الصور هتظهر هنا بعد ما تضيفها من لوحة الأدمن 💗</div></div></section>
 <section id="words" class="section words"><p class="eyebrow">OUR LITTLE STORY</p><h2>كلام من القلب</h2><div id="quotes" class="quotes"><article class="quote">أجمل الحكايات هي اللي بتفضل تفاصيلها عايشة جوانا.</article></div></section>
 <section id="music" class="section music"><p class="eyebrow">A SONG FOR THE MOMENT</p><h2>موسيقى وذكريات <span>♫</span></h2><p class="muted">اختار الأغنية واضغط تشغيل. تقدر تضيف أغانيك من لوحة الأدمن.</p><div id="tracks" class="tracks"><p class="empty">لسه مفيش أغاني مضافة.</p></div><audio id="player" controls preload="none"></audio></section>
+
+
+<section id="birthday" class="section birthday-section">
+  <p class="eyebrow">HER SPECIAL DAY ♡</p>
+  <h2>يوم ميلاد أجمل واحدة ❤️</h2>
+  <div class="birthday-panel">
+    <div id="birthdayCountdown">
+      <p class="birthday-lead">فاضل على يومك الحلو</p>
+      <div class="birthday-counter">
+        <div><strong id="birthdayDays">0</strong><span>يوم</span></div>
+        <div><strong id="birthdayHours">00</strong><span>ساعة</span></div>
+        <div><strong id="birthdayMinutes">00</strong><span>دقيقة</span></div>
+        <div><strong id="birthdaySeconds">00</strong><span>ثانية</span></div>
+      </div>
+      <p class="muted">29 مارس 🎂</p>
+    </div>
+    <div id="birthdaySurprise" class="birthday-surprise" hidden>
+      <div class="birthday-cake">🎂</div>
+      <h2>كل سنة وانتي حبيبتي 💗</h2>
+      <p>النهارده مش يوم عادي... النهارده يوم ميلاد أجمل حكاية.</p>
+      <h2 class="birthday-big-love">بحببببك ❤️</h2>
+      <p>يا رب كل أيامك تبقى فرحة وسعادة.</p>
+      <div class="birthday-confetti">🎉 🎊 💗 🎈 🎁</div>
+    </div>
+  </div>
+</section>
+
+<section class="section heart-section">
+  <p class="eyebrow">A BOX FULL OF LOVE</p>
+  <h2>صندوق صغير مليان حب 💗</h2>
+  <p class="muted">دوسي على القلب وافتحي المفاجأة.</p>
+  <button id="heartBoxButton" class="heart-box-button" type="button" aria-label="افتحي صندوق الحب">
+    <span class="heart-box-icon">💝</span>
+    <span>افتحي صندوق الحب</span>
+  </button>
+  <div id="multilingualLove" class="multilingual-love" hidden aria-live="polite">
+    <h3>بحبك بكل لغات العالم ❤️</h3>
+    <div class="love-languages">
+      <p>🇪🇬 العربية: بحبك</p>
+      <p>🇬🇧 الإنجليزية: I love you</p>
+      <p>🇫🇷 الفرنسية: Je t'aime</p>
+      <p>🇪🇸 الإسبانية: Te quiero</p>
+      <p>🇮🇹 الإيطالية: Ti amo</p>
+      <p>🇩🇪 الألمانية: Ich liebe dich</p>
+      <p>🇹🇷 التركية: Seni seviyorum</p>
+      <p>🇵🇹 البرتغالية: Eu te amo</p>
+      <p>🇯🇵 اليابانية: 愛してる</p>
+      <p>🇰🇷 الكورية: 사랑해</p>
+      <p>🇨🇳 الصينية: 我爱你</p>
+      <p>🇷🇺 الروسية: Я тебя люблю</p>
+      <p>🇬🇷 اليونانية: Σ' αγαπώ</p>
+      <p>🇳🇱 الهولندية: Ik hou van jou</p>
+    </div>
+    <p class="multilingual-ending">ومهما اختلفت اللغات... المعنى واحد ❤️</p>
+  </div>
+</section>
+
+<section class="section sorry-section">
+  <p class="eyebrow">A LITTLE MESSAGE FOR YOU</p>
+  <h2>زر بحبك ❤️</h2>
+  <p class="muted">دوسي هنا لو زعلانة مني</p>
+  <button id="sorryButton" class="pink-btn" type="button">دوسي هنا يا روحي 💗</button>
+  <div id="sorryMessage" class="sorry-message" hidden aria-live="polite"></div>
+</section>
 
 <section id="final-love" class="final-love">
   <p class="eyebrow">FOREVER TOGETHER</p>

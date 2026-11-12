@@ -268,3 +268,164 @@ header, main, footer {
   cursor: pointer;
   font: inherit;
 }
+
+
+/* ROKA birthday, heart box and love messages */
+.birthday-section, .heart-section, .sorry-section {
+  text-align: center;
+  padding: 65px 18px;
+}
+
+.birthday-panel, .multilingual-love, .sorry-message {
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 25px 18px;
+  border: 1px solid #ff2d9166;
+  border-radius: 25px;
+  background: linear-gradient(145deg,#251020,#100910);
+  box-shadow: 0 0 28px #ff2d9122;
+}
+
+.birthday-lead {
+  color: #ffe0ef;
+  font-size: 18px;
+}
+
+.birthday-counter {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 9px;
+  margin: 22px auto;
+}
+
+.birthday-counter div {
+  padding: 15px 5px;
+  border-radius: 15px;
+  background: #351027;
+  border: 1px solid #ff2d9155;
+}
+
+.birthday-counter strong {
+  display: block;
+  color: #ff8bc3;
+  font-size: clamp(22px,6vw,34px);
+}
+
+.birthday-counter span {
+  color: #ffe0ef;
+  font-size: 12px;
+}
+
+.birthday-nav-button {
+  margin: 15px auto;
+  display: inline-block;
+}
+
+.birthday-surprise {
+  animation: birthdayAppear 1s ease both;
+  color: #ffe0ef;
+}
+
+.birthday-cake {
+  font-size: 85px;
+  animation: cakeBounce 1.5s infinite;
+}
+
+.birthday-big-love {
+  color: #ff4da6;
+  font-size: 32px;
+  text-shadow: 0 0 20px #ff2d91;
+}
+
+.birthday-confetti {
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+.heart-box-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 25px auto;
+  padding: 20px 30px;
+  border: 1px solid #ff65ad;
+  border-radius: 25px;
+  background: linear-gradient(145deg,#48102f,#180b19);
+  color: #fff0f7;
+  font: 700 16px Cairo,sans-serif;
+  cursor: pointer;
+  box-shadow: 0 0 25px #ff2d9155;
+}
+
+.heart-box-icon {
+  font-size: 75px;
+  display: block;
+}
+
+.heart-pop .heart-box-icon {
+  animation: heartBoom .65s ease;
+}
+
+.multilingual-love {
+  animation: birthdayAppear .7s ease both;
+}
+
+.multilingual-love h3 {
+  color: #ff8bc3;
+}
+
+.love-languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+  gap: 8px;
+  text-align: center;
+}
+
+.love-languages p {
+  margin: 0;
+  padding: 11px 7px;
+  border-radius: 12px;
+  background: #351027;
+  color: #ffe0ef;
+  overflow-wrap: anywhere;
+}
+
+.multilingual-ending {
+  color: #ff8bc3;
+  margin-top: 20px;
+}
+
+.sorry-message {
+  color: #ffe0ef;
+  font-size: 17px;
+  line-height: 2;
+  animation: birthdayAppear .5s ease both;
+}
+
+.sorry-message p {
+  margin: 0;
+}
+
+@keyframes birthdayAppear {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes cakeBounce {
+  0%,100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@keyframes heartBoom {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.65); filter: drop-shadow(0 0 18px #ff2d91); }
+  65% { transform: scale(.8); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 420px) {
+  .birthday-counter { gap: 5px; }
+  .birthday-counter div { padding: 11px 2px; }
+  .birthday-counter span { font-size: 10px; }
+}
