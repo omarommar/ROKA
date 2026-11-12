@@ -429,3 +429,12 @@ header, main, footer {
   .birthday-counter div { padding: 11px 2px; }
   .birthday-counter span { font-size: 10px; }
 }
+
+
+/* زر الانتقال للظرف السري */
+.next-fixed{
+  position:fixed;bottom:18px;right:18px;z-index:1000;
+  padding:12px 22px;border-radius:30px;
+  background:#ff2d91;color:#fff;text-decoration:none;
+  font-weight:800;box-shadow:0 5px 22px #ff2d9155;
+}

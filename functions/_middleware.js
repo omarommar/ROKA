@@ -7,10 +7,12 @@ export async function onRequest({ request, env, next }) {
 
   const protectedPage =
     path === '/' ||
-    path === '/index.html';
+    path === '/index.html' ||
+    path === '/letter.html';
 
   const protectedResource =
     path === '/app.js' ||
+    path === '/letter.js' ||
     (path === '/api/content' && method === 'GET') ||
     (path === '/api/media' && method === 'GET');
 

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090609">
+<title>الظرف السري ♡</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+.letter-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:35px 20px 100px;background:radial-gradient(ellipse at center,#321329 0%,#120a13 48%,#090609 100%);color:#fff}
+.letter-page h1{color:#ff8bc3;font-size:clamp(27px,6vw,42px);margin:10px 0}
+.letter-page .hint{color:#e8c8dc;margin:8px 0 35px}
+.envelope-area{width:min(330px,85vw);height:230px;position:relative;perspective:900px;margin:15px auto 25px}
+.envelope{position:absolute;inset:35px 0 0;height:175px;background:#e8a0c3;border-radius:8px;box-shadow:0 15px 45px #0008;cursor:pointer;transition:transform .5s;outline:none}
+.envelope:before{content:"";position:absolute;inset:0;background:#f4c1d8;clip-path:polygon(0 0,50% 62%,100% 0);transform-origin:top;transition:transform .8s;z-index:4}
+.envelope:after{content:"";position:absolute;inset:0;background:#d879a7;clip-path:polygon(0 100%,50% 48%,100% 100%);z-index:3}
+.envelope-heart{position:absolute;z-index:5;top:67px;left:50%;transform:translateX(-50%);font-size:45px;filter:drop-shadow(0 3px 5px #8b2456)}
+.letter-paper{position:absolute;z-index:2;left:7%;width:86%;height:145px;top:5px;background:#fff3f8;color:#7d3158;border-radius:8px;padding:18px 12px;box-sizing:border-box;opacity:0;transition:top .9s,opacity .5s;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1.9}
+.envelope.open:before{transform:rotateX(180deg);z-index:1}
+.envelope.open .letter-paper{top:-90px;opacity:1;z-index:6;height:190px}
+.envelope.open .envelope-heart{opacity:0;transition:opacity .3s}
+.open-hint{color:#ffb4d5;font-size:14px}
+.letter-back{display:inline-block;margin-top:25px;padding:12px 25px;border:1px solid #ff75b5;border-radius:30px;color:#fff;text-decoration:none;background:#ff2d9130}
+.next-fixed{position:fixed;bottom:18px;right:18px;z-index:50;background:#ff2d91;color:white;text-decoration:none;padding:12px 20px;border-radius:30px;box-shadow:0 5px 22px #ff2d9155;font-weight:bold}
+@media(max-width:420px){.envelope-area{height:220px}.letter-page{padding-top:25px}}
+</style>
+</head>
+<body>
+<main class="letter-page">
+<p class="eyebrow">JUST FOR YOU ♡</p>
+<h1>فيه رسالة مستنياكي 💗</h1>
+<p class="hint">رسالة صغيرة مستخبية جوا ظرف مخصوص ليكي.</p>
+
+<div class="envelope-area">
+  <div class="envelope" id="secretEnvelope" role="button" tabindex="0" aria-label="افتحي الظرف">
+    <div class="letter-paper">
+      يمكن الكلام مهما كان كتير مش هيعرف يوصف مكانتك...
+      بس حبيت أقولك إن وجودك بيضيف للحكاية معنى أجمل،
+      وإن كل ذكرى حلوة بتبدأ بابتسامة منك. ❤️
+    </div>
+    <div class="envelope-heart">💗</div>
+  </div>
+</div>
+
+<p class="open-hint" id="openHint">اضغطي على الظرف عشان تفتحيه ♡</p>
+<a class="letter-back" href="/">رجوع للحكاية الأولى ♡</a>
+</main>
+<script src="/letter.js"></script>
+</body>
+</html>
