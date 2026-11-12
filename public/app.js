@@ -127,6 +127,45 @@ function renderMusic() {
   });
 }
 
+
+function initLoveEffects() {
+  const layer = document.createElement("div");
+  layer.className = "floating-love";
+  layer.setAttribute("aria-hidden", "true");
+
+  for (let i = 0; i < 22; i++) {
+    const item = document.createElement("span");
+    item.textContent = i % 4 === 0 ? "بحبك" : "♥";
+    item.style.left = (Math.random() * 100) + "%";
+    item.style.animationDelay = (Math.random() * 18) + "s";
+    item.style.animationDuration = (12 + Math.random() * 12) + "s";
+    item.style.fontSize = (14 + Math.random() * 17) + "px";
+    layer.append(item);
+  }
+
+  document.body.prepend(layer);
+
+  const startDate = new Date("2026-11-05T00:00:00+02:00").getTime();
+
+  function updateLoveCounter() {
+    const elapsed = Math.max(0, Date.now() - startDate);
+    const totalSeconds = Math.floor(elapsed / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("love-days").textContent = days;
+    document.getElementById("love-hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("love-minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("love-seconds").textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateLoveCounter();
+  setInterval(updateLoveCounter, 1000);
+}
+
 async function load() {
   let data = { items: [] };
 
@@ -172,4 +211,5 @@ async function load() {
   renderMusic();
 }
 
+initLoveEffects();
 load();

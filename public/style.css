@@ -116,3 +116,92 @@
   border-radius: 10px;
 }
 
+
+
+/* Romantic floating background */
+.floating-love {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-love span {
+  position: absolute;
+  bottom: -50px;
+  color: #ff4da4;
+  opacity: 0;
+  text-shadow: 0 0 12px #ff2d91;
+  white-space: nowrap;
+  animation: love-float linear infinite;
+}
+
+@keyframes love-float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  12% { opacity: .55; }
+  85% { opacity: .45; }
+  100% { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+}
+
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Love story counter */
+.love-counter {
+  position: relative;
+  width: min(100%, 570px);
+  margin: 28px auto 5px;
+  padding: 20px 14px;
+  border: 1px solid #ff2d9166;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #281020eF, #130b16eF);
+  box-shadow: 0 8px 35px #ff2d9120;
+}
+
+.love-counter h2 {
+  color: #ff8bc3;
+  font-size: 22px;
+  margin: 0 0 16px;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.counter-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 4px;
+  border-radius: 13px;
+  background: #ffffff0b;
+  border: 1px solid #ff2d9133;
+}
+
+.counter-grid strong {
+  color: #ff70b5;
+  font-size: clamp(22px, 6vw, 34px);
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-grid span {
+  color: #f6dbe8;
+  font-size: 12px;
+}
+
+.love-counter > p {
+  color: #ffb4d5;
+  margin: 14px 0 0;
+  font-size: 13px;
+}
+
+@media (max-width: 380px) {
+  .counter-grid { gap: 4px; }
+  .counter-grid div { padding: 9px 2px; }
+}
