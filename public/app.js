@@ -44,14 +44,6 @@ const songs = [
   ["رامي صبري","كلمة"]
 ];
 
-const photoSongs = [
-  {title:"تملي معاك — عمرو دياب", id:"EgmXTmj62ic"},
-  {title:"نور العين — عمرو دياب", id:"KLJA-srM_yM"},
-  {title:"قمرين — عمرو دياب", id:"z6RC2T3Q7rs"},
-  {title:"بحكي عليكي — رامي صبري", id:"RVKbjHpcDQg"},
-  {title:"حياتي مش تمام — رامي صبري", id:"STXE-yTTTFI"}
-];
-
 function makePhoto(url, caption, index = 0) {
   const card = document.createElement("article");
   card.className = "photo-card envelope-card";
@@ -74,58 +66,104 @@ function makePhoto(url, caption, index = 0) {
   envelope.append(img, heart);
   card.append(envelope, p);
 
-  const song = photoSongs[index % photoSongs.length];
-
-  const player = document.createElement("div");
-  player.className = "photo-song";
-
-  const songTitle = document.createElement("div");
-  songTitle.className = "photo-song-title";
-  songTitle.textContent = "♫ " + song.title;
-
-  const frame = document.createElement("iframe");
-  frame.src = "https://www.youtube-nocookie.com/embed/" + song.id + "?playsinline=1&rel=0";
-  frame.title = song.title;
-  frame.loading = "lazy";
-  frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-  frame.referrerPolicy = "strict-origin-when-cross-origin";
-  frame.allowFullscreen = true;
-
-  player.append(songTitle, frame);
-  card.append(player);
-
   return card;
 }
+
 function renderMusic() {
   const box = document.getElementById("tracks");
+  const audio = document.getElementById("player");
+
   box.innerHTML = "";
+  audio.pause();
 
-  ["عمرو دياب", "رامي صبري"].forEach(artist => {
-    const heading = document.createElement("h3");
-    heading.className = "artist-heading";
-    heading.textContent = "♫ " + artist;
-    box.append(heading);
+  const title = document.createElement("h3");
+  title.className = "now-playing";
+  title.id = "nowPlaying";
+  title.textContent = "اختار أول مقطع وابدأ الحكاية ♡";
 
-    songs.filter(song => song[0] === artist).forEach(song => {
-      const item = document.createElement("div");
-      item.className = "track";
+  const playlist = document.createElement("div");
+  playlist.className = "remix-playlist";
 
-      const name = document.createElement("span");
-      name.textContent = song[1];
+  box.append(title, playlist);
 
-      const link = document.createElement("a");
-      link.className = "music-link";
-      link.textContent = "استمع ♫";
-      link.href = "https://www.youtube.com/results?search_query=" +
-        encodeURIComponent(song[0] + " " + song[1]);
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
+  let current = 0;
+  let playing = false;
 
-      item.append(name, link);
-      box.append(item);
+  // كل مقطع 30 ثانية. يمكن ضبط بداية المقطع لاحقاً بالثواني.
+  const clipStarts = Array(songs.length).fill(0);
+
+  function playTrack(index) {
+    if (index >= songs.length) {
+      current = 0;
+      playing = false;
+      title.textContent = "انتهى الريمكس ❤️";
+      audio.pause();
+      return;
+    }
+
+    current = index;
+    const [artist, name] = songs[current];
+    const number = String(current + 1).padStart(2, "0");
+
+    title.textContent = "♫ " + name + " — " + artist;
+    audio.src = "/audio/" + number + ".mp3";
+    audio.load();
+
+    audio.onloadedmetadata = () => {
+      audio.currentTime = clipStarts[current];
+      audio.play().then(() => {
+        playing = true;
+        updateButtons();
+      }).catch(() => {
+        title.textContent = "اضغط تشغيل لبدء المقطع ♡";
+      });
+    };
+
+    updateButtons();
+  }
+
+  function updateButtons() {
+    [...playlist.children].forEach((button, i) => {
+      button.classList.toggle("active-track", i === current);
+      button.textContent =
+        (i === current && playing ? "▶ " : "♫ ") +
+        songs[i][1] + " — " + songs[i][0];
     });
+  }
+
+  songs.forEach(([artist, name], index) => {
+    const button = document.createElement("button");
+    button.className = "remix-track";
+    button.textContent = "♫ " + name + " — " + artist;
+
+    button.addEventListener("click", () => {
+      playTrack(index);
+    });
+
+    playlist.append(button);
   });
+
+  audio.ontimeupdate = () => {
+    if (playing && audio.currentTime >= clipStarts[current] + 30) {
+      playTrack(current + 1);
+    }
+  };
+
+  audio.onended = () => {
+    if (playing) playTrack(current + 1);
+  };
+
+  audio.onplay = () => {
+    playing = true;
+    updateButtons();
+  };
+
+  audio.onpause = () => {
+    playing = false;
+    updateButtons();
+  };
 }
+
 
 
 function initLoveEffects() {
@@ -213,3 +251,28 @@ async function load() {
 
 initLoveEffects();
 load();
+
+// زر تشغيل أغنية ROKA في نهاية الصفحة
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("finalSongButton");
+  const audio = document.getElementById("finalSongAudio");
+  if (!button || !audio) return;
+
+  button.addEventListener("click", async () => {
+    try {
+      if (audio.paused) {
+        await audio.play();
+        button.textContent = "إيقاف الأغنية ♡";
+      } else {
+        audio.pause();
+        button.textContent = "ابدأ الحكاية ♡";
+      }
+    } catch (error) {
+      button.textContent = "ملف الأغنية لسه مش موجود ♡";
+    }
+  });
+
+  audio.addEventListener("ended", () => {
+    button.textContent = "ابدأ الحكاية ♡";
+  });
+});

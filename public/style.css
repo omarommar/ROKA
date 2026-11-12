@@ -205,3 +205,66 @@ header, main, footer {
   .counter-grid { gap: 4px; }
   .counter-grid div { padding: 9px 2px; }
 }
+
+/* ROKA audio remix player */
+.remix-playlist {
+  display: grid;
+  gap: 10px;
+  max-width: 650px;
+  margin: 22px auto;
+}
+
+.remix-track {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #ff2d9166;
+  border-radius: 16px;
+  background: linear-gradient(120deg,#211020,#100a10);
+  color: #ffe0ef;
+  font: 600 14px Cairo, sans-serif;
+  text-align: right;
+  cursor: pointer;
+}
+
+.remix-track.active-track {
+  background: linear-gradient(120deg,#7d164c,#32102a);
+  border-color: #ff65ad;
+  box-shadow: 0 0 18px #ff2d9133;
+}
+
+.now-playing {
+  color: #ff8bc3;
+  margin: 20px auto;
+}
+
+/* ROKA final love section */
+.final-love {
+  text-align: center;
+  padding: 70px 18px 90px;
+  background: radial-gradient(ellipse at center, #351027 0%, #090609 72%);
+}
+.final-love h2 {
+  color: #ff8bc3;
+  margin: 12px 0 25px;
+}
+.final-love-frame {
+  width: min(100%, 850px);
+  margin: 0 auto 22px;
+  border: 2px solid #ff2d91;
+  border-radius: 24px;
+  padding: 8px;
+  background: #160d16;
+  box-shadow: 0 0 35px #ff2d9155;
+}
+.final-love-frame img {
+  display: block;
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+  border-radius: 17px;
+}
+#finalSongButton {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
